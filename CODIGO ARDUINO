@@ -1,0 +1,54 @@
+int Led1  = 2;
+int Led2  = 3;
+int Led3  = 4;
+char dato;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(Led1, OUTPUT);
+pinMode(Led2, OUTPUT);
+pinMode(Led3, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(Serial.available()>0)
+  {
+    dato = Serial.read();
+    if(dato=='1'){
+      digitalWrite(Led1, HIGH);
+    }
+    if(dato=='4'){
+      digitalWrite(Led1, LOW);
+    }
+    if(dato=='2'){
+      digitalWrite(Led2, HIGH);
+    }
+    if(dato=='5'){
+      digitalWrite(Led2, LOW);
+    }
+    if(dato=='3'){
+      digitalWrite(Led3, HIGH);
+    }
+    if(dato=='6'){
+      digitalWrite(Led3, LOW);
+    }
+    if(dato=='7'){
+     digitalWrite(Led1, HIGH); // Enciende el Led 13.
+    delay(1000);
+    digitalWrite(Led1, LOW);
+    delay(100);
+    
+    digitalWrite(Led2, HIGH); // Enciende el Led 13.
+    delay(1000);
+    digitalWrite(Led2, LOW);
+    delay(100);
+
+    digitalWrite(Led3, HIGH); // Enciende el Led 13.
+    delay(1000);
+    digitalWrite(Led3, LOW);
+    delay(100);
+    }
+  }
+}
